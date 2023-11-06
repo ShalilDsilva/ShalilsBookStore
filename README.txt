@@ -72,3 +72,11 @@ Updated the Github repo with a completed part 1 of the project
 
 12:49pm EDT
 updated the home page
+
+
+2023-11-06
+
+11:27am EDT
+Edited the appsettings.json to show ShalilsBookStore as database name
+ran "add-migration AddDefaultIdentityMigration" command in the package manager console by selecting ShalilsBooks.DataAccess as default project
+
