@@ -3,8 +3,9 @@ Program name : ShalilBookStore
 Program purpose : Create an MVC ASP.NET application using .NET core 5.0 
 Date created : 2023-10-29 8:00 pm EDT
 
+Assignment-2 part-1
 
-2023-10-29
+2023-10-29 
 
 8:00 pm EDT 
 Created a project an mvc asp.net core web app named ShalilBookStore
@@ -74,6 +75,8 @@ Updated the Github repo with a completed part 1 of the project
 updated the home page
 
 
+Assignment-2 part-2
+
 2023-11-06
 
 11:27am EDT
@@ -93,3 +96,16 @@ got an error for duplicate file
 deleted the previously created migration file and ran the add migartion cmd again
 ran the update-database cmd
 project run successfully without errors
+
+1:59pm EDT
+Created a new folder Repository in the DataAccess Project
+Created a new IRepository folder in the Repository folder
+Added an interface class IRepository.cs in the folder
+Modified it so it can be used on Category class to do all the CRUD operations
+Added a new class Repository.cs in the Repository folder
+Modified the code in Repository.cs to create constructors and DI
+
+Added a new CategoryRepository and ICategoryRepository files in the following folders
+updated the files 
+Ran the code without any errors
+
