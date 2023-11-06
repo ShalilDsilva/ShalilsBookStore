@@ -83,3 +83,13 @@ ran "add-migration AddDefaultIdentityMigration" command in the package manager c
 12:22pm EDT
 Updated the database by running update-database cmd
 ran the project to check if runs successfully
+
+1:06pm EDT
+Added a new class to the models project
+added migration via pm console
+the new migartion file was empty because it was not added to db context file
+update the db context file and rerunned the command 
+got an error for duplicate file 
+deleted the previously created migration file and ran the add migartion cmd again
+ran the update-database cmd
+project run successfully without errors
