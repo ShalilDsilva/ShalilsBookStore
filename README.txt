@@ -80,3 +80,6 @@ updated the home page
 Edited the appsettings.json to show ShalilsBookStore as database name
 ran "add-migration AddDefaultIdentityMigration" command in the package manager console by selecting ShalilsBooks.DataAccess as default project
 
+12:22pm EDT
+Updated the database by running update-database cmd
+ran the project to check if runs successfully
