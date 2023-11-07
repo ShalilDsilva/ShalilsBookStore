@@ -82,6 +82,7 @@ Assignment-2 part-2
 11:27am EDT
 Edited the appsettings.json to show ShalilsBookStore as database name
 ran "add-migration AddDefaultIdentityMigration" command in the package manager console by selecting ShalilsBooks.DataAccess as default project
+a file named 20231106162113_AddDefaultIdentityMigration was created in migration folder
 
 12:22pm EDT
 Updated the database by running update-database cmd
@@ -90,6 +91,7 @@ ran the project to check if runs successfully
 1:06pm EDT
 Added a new class to the models project
 added migration via pm console
+a file named 20231106175021_AddCategoryToDb was created in migration folder
 the new migartion file was empty because it was not added to db context file
 update the db context file and rerunned the command 
 got an error for duplicate file 
@@ -122,3 +124,7 @@ Modified the code by the provided code
 Added a new folder in Areas/View with name Category
 Created a razor view named index.cshtml in it
 Updated the _Layout.cshtml file to display new changed
+
+9:25pm EDT
+Added a category.js file to display icons from font awesome site
+in index file added the @section call to get the javascript file
