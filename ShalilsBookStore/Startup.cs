@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ShalilsBooks.DataAccess.Repository;
+using ShalilsBooks.DataAccess.Repository.IRepository;
 using ShalilsBookStore.DataAccess.Data;
 using System;
 using System.Collections.Generic;
@@ -35,6 +37,7 @@ namespace ShalilsBookStore
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
         }
 
