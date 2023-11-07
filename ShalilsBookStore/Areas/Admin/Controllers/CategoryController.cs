@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShalilsBooks.DataAccess.Repository.IRepository;
+using ShalilsBooks.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,23 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult Upsert(int? id) //action method for Upsert
+        {
+            Category category = new Category(); //using ShalilsBooks.Models
+            if(id == null)
+            {
+                //this is for create
+                return View(category);
+            }
+            //this is for edit
+            category = _unitOfWork.Category.Get(id.GetValueOrDefault());
+            if(category == null)
+            {
+                return NotFound();
+            }
             return View();
         }
 

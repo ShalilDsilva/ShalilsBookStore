@@ -128,3 +128,8 @@ Updated the _Layout.cshtml file to display new changed
 9:25pm EDT
 Added a category.js file to display icons from font awesome site
 in index file added the @section call to get the javascript file
+
+9:58pm EDT
+Added Upsert.cshtml file to create category
+added partial views named _CreateAndBackToListButton and _EditAndBackToListButton
+Made changes to Index.cshtml file to view Upsert file
