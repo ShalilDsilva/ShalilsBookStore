@@ -115,3 +115,10 @@ Added a new class SP_Class.cs
 Added new files UnitOfWork and IUnitOfWork 
 Updated the startup.cs file to add the above files
 
+
+9:07pm EDT
+Added a new MVC Controller CategoryController in the Areas/Admin folder
+Modified the code by the provided code
+Added a new folder in Areas/View with name Category
+Created a razor view named index.cshtml in it
+Updated the _Layout.cshtml file to display new changed
