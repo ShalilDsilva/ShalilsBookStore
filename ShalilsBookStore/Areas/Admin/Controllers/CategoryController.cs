@@ -36,7 +36,31 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            return View();
+            return View(category);
+        }
+
+        //use HTTP POST to define the post-action method
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Upsert(Category category)
+        {
+
+            if(ModelState.IsValid) // checks all validations in the model (e.g. Name Required) to increase security
+            {
+                if(category.Id == 0)
+                {
+                    _unitOfWork.Category.Add(category);
+                }
+                else
+                {
+                    _unitOfWork.Category.Update(category);
+
+                }
+                
+                _unitOfWork.Save();
+                return RedirectToAction(nameof(Index)); //to see all categories
+            }
+            return View(category);
         }
 
         // API calls here

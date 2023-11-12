@@ -2,8 +2,6 @@
 using ShalilsBooks.Models;
 using ShalilsBookStore.DataAccess.Data;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace ShalilsBooks.DataAccess.Repository
@@ -11,6 +9,8 @@ namespace ShalilsBooks.DataAccess.Repository
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
         private readonly ApplicationDbContext _db;
+        //private readonly IUnitOfWork _unitOfWork;
+        
         public CategoryRepository(ApplicationDbContext db) : base(db)     
         {
             _db = db;
@@ -25,6 +25,8 @@ namespace ShalilsBooks.DataAccess.Repository
             {
                 objFromDb.Name = category.Name;
                 _db.SaveChanges();
+                //_unitOfWork.Save();
+                //return RedirectToAction(nameof(Index)); //to see all categories
             }
         }
     }
