@@ -140,3 +140,8 @@ Made changes to Index.cshtml file to view Upsert file
 6:42pm EDT
 Created Upsert post action method in categorycontroller file
 added void save method to the iunitofwork file
+
+8:42pm EDT
+Added the API call for HTTPDelete in the categorycontroller file
+Implemented the HTTPDelete with a delete method in category.js file
+Added Delete function in the category.js file
