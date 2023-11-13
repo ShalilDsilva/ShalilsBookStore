@@ -145,3 +145,10 @@ added void save method to the iunitofwork file
 Added the API call for HTTPDelete in the categorycontroller file
 Implemented the HTTPDelete with a delete method in category.js file
 Added Delete function in the category.js file
+
+
+2023-11-13
+
+4:42pm EDT
+Delete functunality was not working because of some typo in category.js file
+Comitted to github without any errors.
