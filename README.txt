@@ -167,3 +167,8 @@ Added a new Class Product in .Models folder
 Ran cmds to add migration and update database, a new file 20231117220633_addProductToDb was created
 updated the product class to make some fields required
 Ran cmds to add migration and update database, a new file 20231117221117_addValidationToProduct was created
+
+5:33pm
+Added ProductRepository class to the repository folder 
+Added IProduct interface
+Added Product to unitofwork and Iunitofwork
