@@ -152,3 +152,11 @@ Added Delete function in the category.js file
 4:42pm EDT
 Delete functunality was not working because of some typo in category.js file
 Comitted to github without any errors.
+
+
+Assignment-2 part-3
+
+4:45pm 
+Created CoverType CRUD with the same methods used for Category CRUD
+Addded CoverType to the repository
+Performed CRUD operations on CoverType
