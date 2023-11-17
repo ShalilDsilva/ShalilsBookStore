@@ -159,4 +159,11 @@ Assignment-2 part-3
 4:45pm 
 Created CoverType CRUD with the same methods used for Category CRUD
 Addded CoverType to the repository
+a new file 20231117194021_AddCoverTypeToDb was created
 Performed CRUD operations on CoverType
+
+5:15pm
+Added a new Class Product in .Models folder
+Ran cmds to add migration and update database, a new file 20231117220633_addProductToDb was created
+updated the product class to make some fields required
+Ran cmds to add migration and update database, a new file 20231117221117_addValidationToProduct was created
