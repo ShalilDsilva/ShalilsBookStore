@@ -172,3 +172,14 @@ Ran cmds to add migration and update database, a new file 20231117221117_addVali
 Added ProductRepository class to the repository folder 
 Added IProduct interface
 Added Product to unitofwork and Iunitofwork
+
+9:11pm
+Added Product Controller
+Installed a package to include IWebHostEnvironment
+Created a viewmodel for project models name ProductVM
+Modified the ProductVM and installed the ViewFeatures package
+Modified the productcontroller class
+Added an Index view for product model similar to the category model
+Modified the _layout.cshtml file to add a new link to the product
+Program ran with an exception.
+
