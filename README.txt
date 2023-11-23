@@ -183,3 +183,12 @@ Added an Index view for product model similar to the category model
 Modified the _layout.cshtml file to add a new link to the product
 Program ran with an exception.
 
+
+2023-11-22
+
+11:35pm
+Created an Upsert for the product
+Added a rich text box from tiny.cloud
+Added a new folder in wwwroot
+In ProductController uncommented the HTTP Post API Call
+Got Errors 

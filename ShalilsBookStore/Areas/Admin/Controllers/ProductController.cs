@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Hosting;
-using ShalilsBooks.DataAccess.Repository.IRepository;
-using ShalilsBooks.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ShalilsBooks.Models;
 using ShalilsBooks.Models.ViewModels;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
+using ShalilsBooks.DataAccess.Repository.IRepository;
 
 namespace ShalilsBookStore.Areas.Admin.Controllers
 {
@@ -16,6 +13,7 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _hostEnvironment;
+
         public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
         {
             _unitOfWork = unitOfWork;
@@ -26,8 +24,7 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
         {
             return View();
         }
-
-        public IActionResult Upsert(int? id) //action method for Upsert
+        public IActionResult Upsert(int? id)
         {
             ProductVM productVM = new ProductVM()
             {
@@ -41,14 +38,15 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
-                })
+                }),
             };
+            // using AndrewsBooks.Models;
             if (id == null)
             {
-                //this is for create
+                // this is for create
                 return View(productVM);
             }
-            //this is for edit
+            // this for the edit
             productVM.Product = _unitOfWork.Product.Get(id.GetValueOrDefault());
             if (productVM.Product == null)
             {
@@ -57,8 +55,11 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
             return View(productVM);
         }
 
+        // API calls here
+        #region API CALLS
+
         //use HTTP POST to define the post-action method
-        /*[HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(Product product)
         {
@@ -79,28 +80,25 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index)); //to see all categories
             }
             return View(product);
-        }*/
+        }
 
-        // API calls here
-        #region API CALLS
+      
         [HttpGet]
-
         public IActionResult GetAll()
         {
-            //return NotFound();
-            var allObj = _unitOfWork.CoverType.GetAll(includeProperties:"Category, CoverType");
-            return Json(new { data = allObj });
+            var allObjs = _unitOfWork.Product.GetAll(includeProperties: "Category, CoverType");
+            return Json(new { data = allObjs });
         }
 
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var objFromDb = _unitOfWork.CoverType.Get(id);
-            if(objFromDb == null)
+            var objFromDb = _unitOfWork.Product.Get(id);
+            if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error while deleting" });
             }
-            _unitOfWork.CoverType.Remove(objFromDb);
+            _unitOfWork.Product.Remove(objFromDb);
             _unitOfWork.Save();
             return Json(new { success = true, message = "Delete successful" });
         }
