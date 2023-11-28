@@ -200,3 +200,6 @@ Got Errors
 Solved error by making changes in the product controller file and product.js file from the github link provided
 Got Error in the Upsert file of product solved it by refering the github link provided
 Created the front page, which displays the product information.
+
+9:10 am
+Edited the Upsert file in the product, to show the selectlist in black color for more visibility
