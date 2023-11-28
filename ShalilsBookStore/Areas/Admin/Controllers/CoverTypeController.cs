@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ShalilsBooks.DataAccess.Repository.IRepository;
+﻿using ShalilsBooks.DataAccess.Repository.IRepository;
 using ShalilsBooks.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,15 +24,15 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
 
         public IActionResult Upsert(int? id) //action method for Upsert
         {
-            CoverType coverType = new CoverType(); //using ShalilsBooks.Models
-            if(id == null)
+            CoverType coverType = new CoverType();
+            if (id == null)
             {
                 //this is for create
                 return View(coverType);
             }
             //this is for edit
             coverType = _unitOfWork.CoverType.Get(id.GetValueOrDefault());
-            if(coverType == null)
+            if (coverType == null)
             {
                 return NotFound();
             }
@@ -45,9 +45,9 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
         public IActionResult Upsert(CoverType coverType)
         {
 
-            if(ModelState.IsValid) // checks all validations in the model (e.g. Name Required) to increase security
+            if (ModelState.IsValid) // checks all validations in the model (e.g. Name Required) to increase security
             {
-                if(coverType.Id == 0)
+                if (coverType.Id == 0)
                 {
                     _unitOfWork.CoverType.Add(coverType);
                 }
@@ -56,7 +56,7 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
                     _unitOfWork.CoverType.Update(coverType);
 
                 }
-                
+
                 _unitOfWork.Save();
                 return RedirectToAction(nameof(Index)); //to see all categories
             }
@@ -78,7 +78,7 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
         public IActionResult Delete(int id)
         {
             var objFromDb = _unitOfWork.CoverType.Get(id);
-            if(objFromDb == null)
+            if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error while deleting" });
             }

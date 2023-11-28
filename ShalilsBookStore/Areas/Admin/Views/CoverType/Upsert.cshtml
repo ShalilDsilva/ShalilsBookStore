@@ -1,20 +1,19 @@
 ﻿@model ShalilsBooks.Models.CoverType;
-
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var title = "Create CoverType";
+    var title = "Create Cover Type";
 }
 
 <form method="post">
     <div class="row p-3 border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @if(Model.Id != 0)
+        @if (Model.Id != 0)
         {
             //Edit
-            title = "Edit CoverType";
+            title = "Edit Category";
         }
         <div class="col-12 border-bottom">
-            <h2 class="text-primary">@title</h2>
+            <h2 class="text-primary">Cover Type</h2>
         </div>
         <div class="col-8 pt-4">
             <div class="form-group row">
@@ -22,7 +21,7 @@
                     <label asp-for="Name"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Name" class="form-control"/>
+                    <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
             </div>
@@ -42,6 +41,8 @@
     </div>
 </form>
 
-@section Scripts{ 
-<partial name="_ValidationScriptsPartial"/>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
 }

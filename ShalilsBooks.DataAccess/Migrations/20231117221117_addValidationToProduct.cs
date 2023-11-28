@@ -25,16 +25,6 @@ namespace ShalilsBooks.DataAccess.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)",
                 oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Author",
-                table: "Products",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -49,14 +39,6 @@ namespace ShalilsBooks.DataAccess.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "ISBN",
-                table: "Products",
-                type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Author",
                 table: "Products",
                 type: "nvarchar(max)",
                 nullable: true,

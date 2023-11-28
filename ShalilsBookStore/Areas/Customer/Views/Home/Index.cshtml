@@ -1,7 +1,24 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<ShalilsBooks.Models.Product>
+<div class="row pb-3 backgroundWhite">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to my Book Store</h1>
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12  p-1" style="border:3px solid black; border-radius: 5px;">
+                    <div class="card" style="border:0px;">
+                        <img src="@product.ImageUrl"/>
+                        <div class="pl-1">
+                            <p class="card-title h5"><b style="color: brown">@product.Title</b></p>
+                            <p class="card-title h5" style="color:brown">Writter: <b>@product.Author</b></p>
+                        </div>
+                        <div style="padding-left:5px;">
+                            <p class="card-title h5" style="color: brown">Book Price: <b class="">$ @product.ListPrice.ToString("0.00")</b></p>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    }
 </div>

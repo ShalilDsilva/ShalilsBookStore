@@ -1,27 +1,26 @@
-﻿using ShalilsBooks.DataAccess.Repository.IRepository;
+﻿using Dapper;
 using ShalilsBookStore.DataAccess.Data;
-using Dapper;
+using ShalilsBooks.DataAccess.Repository.IRepository;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using Microsoft.Data.SqlClient;
+using System.Text;
 
 namespace ShalilsBooks.DataAccess.Repository
 {
     public class SP_Call : ISP_Call
     {
-        //access the database
         private readonly ApplicationDbContext _db;
-        private static string ConnectionString = ""; //needed to called the stored procedures
+        private static string ConnectionString = "";
 
         public SP_Call(ApplicationDbContext db)
         {
             _db = db;
             ConnectionString = db.Database.GetDbConnection().ConnectionString;
         }
-        //implement the ISP_Call interface
+
         public void Dispose()
         {
             _db.Dispose();
@@ -42,7 +41,6 @@ namespace ShalilsBooks.DataAccess.Repository
             {
                 sqlCon.Open();
                 return sqlCon.Query<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
-
             }
         }
 
@@ -52,13 +50,16 @@ namespace ShalilsBooks.DataAccess.Repository
             {
                 sqlCon.Open();
                 var result = SqlMapper.QueryMultiple(sqlCon, procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
-                var item1 = result.Read<T1>().ToList(); // make sure to add using statement for LINQ
+                var item1 = result.Read<T1>().ToList();
                 var item2 = result.Read<T2>().ToList();
-                if (item1 != null && item2  != null)
+
+
+                if (item1 != null && item2 != null)
                 {
                     return new Tuple<IEnumerable<T1>, IEnumerable<T2>>(item1, item2);
                 }
             }
+
             return new Tuple<IEnumerable<T1>, IEnumerable<T2>>(new List<T1>(), new List<T2>());
         }
 

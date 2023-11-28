@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ShalilsBooks.DataAccess.Repository.IRepository;
+﻿using ShalilsBooks.DataAccess.Repository.IRepository;
 using ShalilsBooks.Models;
+using Microsoft.AspNetCore.Mvc;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,14 +26,14 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
         public IActionResult Upsert(int? id) //action method for Upsert
         {
             Category category = new Category(); //using ShalilsBooks.Models
-            if(id == null)
+            if (id == null)
             {
                 //this is for create
                 return View(category);
             }
             //this is for edit
             category = _unitOfWork.Category.Get(id.GetValueOrDefault());
-            if(category == null)
+            if (category == null)
             {
                 return NotFound();
             }
@@ -45,9 +46,9 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
         public IActionResult Upsert(Category category)
         {
 
-            if(ModelState.IsValid) // checks all validations in the model (e.g. Name Required) to increase security
+            if (ModelState.IsValid) // checks all validations in the model (e.g. Name Required) to increase security
             {
-                if(category.Id == 0)
+                if (category.Id == 0)
                 {
                     _unitOfWork.Category.Add(category);
                 }
@@ -56,7 +57,7 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
                     _unitOfWork.Category.Update(category);
 
                 }
-                
+
                 _unitOfWork.Save();
                 return RedirectToAction(nameof(Index)); //to see all categories
             }
@@ -78,7 +79,7 @@ namespace ShalilsBookStore.Areas.Admin.Controllers
         public IActionResult Delete(int id)
         {
             var objFromDb = _unitOfWork.Category.Get(id);
-            if(objFromDb == null)
+            if (objFromDb == null)
             {
                 return Json(new { success = false, message = "Error while deleting" });
             }

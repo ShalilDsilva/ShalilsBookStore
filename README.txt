@@ -192,3 +192,11 @@ Added a rich text box from tiny.cloud
 Added a new folder in wwwroot
 In ProductController uncommented the HTTP Post API Call
 Got Errors 
+
+
+2023-11-28
+
+9:04 am
+Solved error by making changes in the product controller file and product.js file from the github link provided
+Got Error in the Upsert file of product solved it by refering the github link provided
+Created the front page, which displays the product information.
